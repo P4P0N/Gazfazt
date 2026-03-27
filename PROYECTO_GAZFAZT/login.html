@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="resources/css/styles.css">
+</head>
+
+<body>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header fs-4 py-4 text-center header-formulario">
+                    Crear tu cuenta en Gazfazt
+                </div>
+
+                <!--NOMBRE-APELLIDO-->
+                <div class="card-body p-4">
+                    <form class="fs-6">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" type="text" required id="campo_nombre"
+                                        placeholder="Escribe tu nombre">
+                                    <!--el required es para que se llene si o si el label con algo-->
+                                    <label class="form-label" for="campo_nombre">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col mb-3">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" type="text" required id="campo_apellido"
+                                        placeholder="Escribe tu apellido">
+                                    <!--el required es para que se llene si o si el label con algo-->
+                                    <label class="form-label" for="campo_apellido">Apellido</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col mb-3">
+                                <div class="form-floating">
+                                    <select class="form-select" id="tipo_documento" name="tipo_documento" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="cc">Cédula de ciudadanía</option>
+                                        <option value="ce">Cédula de extranjería</option>
+                                    </select>
+                                    <label for="tipo_documento">Tipo de documento</label>
+                                </div>
+                            </div>
+
+                            <div class="col mb-3">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="numero_documento" inputmode="numeric"
+                                        pattern="[0-9]*">
+                                    <label for="numero_documento">Número de documento</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!--OPCIONES DE GENERO-->
+                        <div class="mb-3">
+                            <label class="form-label">Género</label>
+
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="sexo" id="hombre" autocomplete="off"
+                                    required>
+                                <label class="btn btn-sexo-gazfazt" for="hombre">Masculino</label>
+
+                                <input type="radio" class="btn-check" name="sexo" id="mujer" autocomplete="off"
+                                    required>
+                                <label class="btn btn-sexo-gazfazt" for="mujer">Femenino</label>
+
+                                <input type="radio" class="btn-check" name="sexo" id="otro" autocomplete="off" required>
+                                <label class="btn btn-sexo-gazfazt" for="otro">Otro</label>
+                            </div>
+                        </div>
+
+                        <!--DEPARTAMENTO Y MUNICIPIO-->
+                        <div class="row">
+
+                            <div class="col mb-3">
+                                <div class="form-floating">
+                                    <select class="form-select" id="departamento" required>
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    <label for="departamento">Departamento</label>
+                                </div>
+                            </div>
+
+                            <div class="col mb-3">
+                                <div class="form-floating">
+                                    <select class="form-select" id="municipio" required>
+                                        <option value="">Seleccione un departamento</option>
+                                    </select>
+                                    <label for="municipio">Municipio</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--DIRECCION-->
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="direccion" placeholder="Dirección" required>
+                            <label for="direccion">Dirección</label>
+                        </div>
+
+                        <!--CORREO ELECTRONICO-->
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                                required>
+                            <label for="floatingInput">Correo Electronico</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                                required>
+                            <label for="floatingPassword">Contraseña</label>
+                        </div>
+
+                        <!-- check y boton enviar-->
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="checkform" required>
+                            <label class="form-check-label" for="checkform">
+                                Acepto los términos y condiciones
+                            </label>
+                        </div>
+                        <a href="/PROYECTO_GAZFAZT/indexUsuario.html" type="submit" class="btn btn-gazfazt w-100" disabled id="btnEnviar">¡Crear!</a>
+                        <!--disable desactivar boton-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/municipios.js"></script>
+    <!--script para no permitir formulario hasta aceptar terminos-->
+    <script>
+        const check = document.getElementById("checkform");
+        const btn = document.getElementById("btnEnviar");
+
+        check.addEventListener("change", function () {
+            btn.disabled = !this.checked;
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

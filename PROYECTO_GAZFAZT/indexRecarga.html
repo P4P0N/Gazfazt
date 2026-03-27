@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recargar saldo</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/PROYECTO_GAZFAZT/assets/dist/css/bootstrap.min.css">
+
+    <!-- TU CSS (IMPORTANTE) -->
+    <link rel="stylesheet" href="/PROYECTO_GAZFAZT/resources/css/styles.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+
+                <!-- HEADER IGUAL AL LOGIN -->
+                <div class="card-header fs-4 py-4 text-center header-formulario py-4">
+                    Recargar saldo
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form>
+
+                        <!-- INFO USUARIO -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Información de la cuenta</label><br>
+                            <span>Nombre: Juan Pérez</span><br>
+                            <span>Número de identificación: 123456789</span><br>
+                            <span>Correo: juan.perez@example.com</span>
+                        </div>
+
+                        <!-- RECARGA RAPIDA -->
+                        <div class="mb-3">
+                            <label class="form-label">Selecciona un valor</label>
+
+                            <div class="d-flex flex-wrap gap-2 mb-2">
+
+                                <button type="button" class="btn btn-sexo-gazfazt btn-recarga"
+                                    onclick="seleccionarValor(10000,this)">10.000</button>
+
+                                <button type="button" class="btn btn-sexo-gazfazt btn-recarga"
+                                    onclick="seleccionarValor(20000,this)">20.000</button>
+
+                                <button type="button" class="btn btn-sexo-gazfazt btn-recarga"
+                                    onclick="seleccionarValor(50000,this)">50.000</button>
+
+                                <button type="button" class="btn btn-sexo-gazfazt btn-recarga"
+                                    onclick="seleccionarValor(100000,this)">100.000</button>
+
+                                <button type="button" class="btn btn-outline-secondary"
+                                    onclick="habilitarOtro()">Otro valor</button>
+
+                            </div>
+
+                            <input id="monto" type="text" inputmode="numeric" class="form-control">
+                        </div>
+
+                        <!-- BANCO -->
+                        <div class="mb-3">
+                            <label class="form-label">Banco</label>
+                            <select id="banco" class="form-select" required>
+                                <option value="">Seleccione un banco</option>
+                            </select>
+                        </div>
+
+                        <!-- TERMINOS -->
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="terminos" required>
+                            <label class="form-check-label" for="terminos">
+                                Acepto los términos y condiciones
+                            </label>
+                        </div>
+
+                        <!-- BOTON -->
+                        <button type="submit" class="btn btn-gazfazt w-100">
+                            Recargar
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/PROYECTO_GAZFAZT/assets/js/recarga.js"></script>
+
+    <script>
+const inputMonto = document.getElementById("monto");
+
+inputMonto.addEventListener("input", function () {
+    // Elimina todo lo que no sea número
+    this.value = this.value.replace(/[^0-9]/g, "");
+
+    // Evita números negativos (por si acaso)
+    if (this.value < 0) {
+        this.value = "";
+    }
+});
+</script>
+
+</body>
+
+</html>

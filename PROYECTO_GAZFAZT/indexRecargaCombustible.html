@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recargar combustible</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/PROYECTO_GAZFAZT/assets/dist/css/bootstrap.min.css">
+
+    <!-- TU CSS -->
+    <link rel="stylesheet" href="/PROYECTO_GAZFAZT/resources/css/styles.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+
+                <!-- HEADER MORADO -->
+                <div class="card-header fs-4 py-4 text-center header-formulario py-4">
+                    Recargar combustible
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form>
+
+                        <!-- INFO USUARIO -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Información de la cuenta</label><br>
+                            <span>Nombre: Juan Pérez</span><br>
+                            <span>Número de identificación: 123456789</span><br>
+                            <span>Correo: juan.perez@example.com</span>
+                        </div>
+
+                        <!-- RECARGA -->
+                        <div class="mb-3">
+                            <label class="form-label">Recarga de combustible</label>
+
+                            <div class="d-grid gap-2 mb-3" style="grid-template-columns: repeat(3, 1fr);">
+
+                                <button type="button" class="btn btn-sexo-gazfazt"
+                                    onclick="sumar(1000)">1.000</button>
+
+                                <button type="button" class="btn btn-sexo-gazfazt"
+                                    onclick="sumar(2000)">2.000</button>
+
+                                <button type="button" class="btn btn-sexo-gazfazt"
+                                    onclick="sumar(5000)">5.000</button>
+
+                                <button type="button" class="btn btn-sexo-gazfazt"
+                                    onclick="sumar(10000)">10.000</button>
+
+                                <button type="button" class="btn btn-sexo-gazfazt"
+                                    onclick="sumar(50000)">50.000</button>
+
+                                <button type="button" class="btn btn-sexo-gazfazt"
+                                    onclick="sumar(100000)">100.000</button>
+
+                                <button type="button" class="btn btn-gazfazt w-100"
+                                    onclick="llenar()" style="grid-column: 2;">
+                                    Llenar
+                                </button>
+
+                            </div>
+
+                            <input id="monto" type="text" inputmode="numeric" class="form-control text-center fw-bold"
+                                placeholder="Ingrese el monto" required>
+                        </div>
+
+                        <!-- BOTON -->
+                        <button type="submit" class="btn btn-gazfazt w-100">
+                            Recargar
+                        </button>
+
+                        <!-- QR -->
+                        <div id="qr" class="d-flex justify-content-center mt-4"></div>
+                        <div id="mensaje" class="mt-3 text-center"></div>
+
+                    </form>
+
+                    <!-- VOLVER -->
+                    <button class="btn btn-outline-secondary w-100 mt-3" onclick="volver()">
+                        ← Volver al menú
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/PROYECTO_GAZFAZT/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script src="/PROYECTO_GAZFAZT/assets/js/combustible.js"></script>
+
+</body>
+
+</html>
