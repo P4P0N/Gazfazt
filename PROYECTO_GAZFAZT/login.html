@@ -177,12 +177,22 @@
                     apellido: apellido,
                     correo: correo,
                     password: password,
-                    direccion: direccion
+                    direccion: direccion,
+                    documento: document.getElementById("numero_documento").value,
+                    departamento: document.getElementById("departamento").value,
+                    municipio: document.getElementById("municipio").value
                 })
             })
                 .then(res => res.json())
                 .then(data => {
                     alert("Usuario registrado correctamente");
+                    // Guardar usuario en el navegador
+                    localStorage.setItem("usuario", JSON.stringify({
+                        nombre: nombre,
+                        apellido: apellido,
+                        correo: correo,
+                        direccion: direccion
+                    }));
 
                     // REDIRIGIR después de guardar
                     window.location.href = "/PROYECTO_GAZFAZT/indexUsuario.html";

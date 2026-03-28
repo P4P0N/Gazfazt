@@ -31,7 +31,8 @@
 
                         <!-- CORREO -->
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="correo" placeholder="name@example.com" required>
+                            <input type="email" class="form-control" id="correo" placeholder="name@example.com"
+                                required>
                             <label for="correo">Correo electrónico</label>
                         </div>
 
@@ -52,7 +53,8 @@
                     <div class="text-center mt-4">
                         <p class="mb-0">
                             ¿No tienes cuenta?
-                            <a href="/PROYECTO_GAZFAZT/login.html" class="text-decoration-none fw-bold" style="color:#4A4696;">
+                            <a href="/PROYECTO_GAZFAZT/login.html" class="text-decoration-none fw-bold"
+                                style="color:#4A4696;">
                                 Crea una aquí
                             </a>
                         </p>
@@ -75,7 +77,7 @@
                 .then(res => res.json())
                 .then(data => {
 
-                    const usuario = data.find(u => 
+                    const usuario = data.find(u =>
                         u.correo === correo && u.password === password
                     );
 
@@ -83,8 +85,8 @@
                         alert("Bienvenido " + usuario.nombre);
 
                         // guardar sesión (opcional)
-                        localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
-
+                        localStorage.setItem("usuario", JSON.stringify(usuario));
+                        
                         window.location.href = "/PROYECTO_GAZFAZT/indexUsuario.html";
                     } else {
                         alert("Correo o contraseña incorrectos");
@@ -96,4 +98,5 @@
     </script>
 
 </body>
+
 </html>
