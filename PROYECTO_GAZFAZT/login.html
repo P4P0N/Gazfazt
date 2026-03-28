@@ -129,7 +129,9 @@
                                 Acepto los términos y condiciones
                             </label>
                         </div>
-                        <a href="/PROYECTO_GAZFAZT/indexUsuario.html" type="submit" class="btn btn-gazfazt w-100" disabled id="btnEnviar">¡Crear!</a>
+                        <button type="button" class="btn btn-gazfazt w-100" disabled id="btnEnviar">
+                            ¡Crear!
+                        </button>
                         <!--disable desactivar boton-->
                     </form>
                 </div>
@@ -149,6 +151,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById("btnEnviar").addEventListener("click", function () {
+
+            const nombre = document.getElementById("campo_nombre").value;
+            const apellido = document.getElementById("campo_apellido").value;
+            const correo = document.getElementById("floatingInput").value;
+            const password = document.getElementById("floatingPassword").value;
+            const direccion = document.getElementById("direccion").value;
+
+            fetch("http://localhost:3000/usuarios", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: Date.now(),
+                    nombre: nombre,
+                    apellido: apellido,
+                    correo: correo,
+                    password: password,
+                    direccion: direccion
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert("Usuario registrado correctamente");
+
+                    // REDIRIGIR después de guardar
+                    window.location.href = "/PROYECTO_GAZFAZT/indexUsuario.html";
+                });
+
+        });
+    </script>
 </body>
 
 </html>
