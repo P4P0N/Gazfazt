@@ -246,3 +246,7 @@ iframe {
 .btn-login:hover {
     background-color: #5a96c9;
 }
+a{
+    
+    text-decoration: none;
+}
